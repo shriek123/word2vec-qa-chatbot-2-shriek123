@@ -23,7 +23,7 @@ df = pd.read_csv("../data/Question_Answer_Dataset_v1.2_S10.csv")
 vector = np.load('../data/vector.npz')
 ques_vec = vector['x']
 print(vector)
-#ans_vec = vector['y']
+ans_vec = vector['y']
 
 # load th trained word2vec model 
 # Hint: You should use the word2vec model pre-trained with both question and answer sets.
