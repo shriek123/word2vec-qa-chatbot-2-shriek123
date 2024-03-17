@@ -17,23 +17,23 @@ import gensim
 import numpy as np
 
 # load question-answer dataset 
-df = pd.read_csv("/workspaces/word2vec-qa-chatbot-2-shriek123/data/Question_Answer_Dataset_v1.2_S10.csv")
+df = pd.read_csv("../data/Question_Answer_Dataset_v1.2_S10.csv")
 
 # load question and answer vectors generated from pre-trained word2vec model
-vector = np.load('/workspaces/word2vec-qa-chatbot-2-shriek123/data/vector.npz')
+vector = np.load('../data/vector.npz')
 ques_vec = vector['x']
 print(vector)
 #ans_vec = vector['y']
 
 # load th trained word2vec model 
 # Hint: You should use the word2vec model pre-trained with both question and answer sets.
-trained_w2v = gensim.models.Word2Vec.load("data/w2v-advanced.model")
+trained_w2v = gensim.models.Word2Vec.load("../data/w2v-advanced.model")
 
 # App title
 st.set_page_config(page_title="Word2vec Question and Answer Chatbot")
 
 # Add header image 
-st.image("data/header-chat-box.png")
+st.image("../data/header-chat-box.png")
 
 # chat title 
 st.title("Word2vec Question and Answer Chatbot")
