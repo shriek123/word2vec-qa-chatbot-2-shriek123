@@ -77,10 +77,12 @@ def find_answer(qr_sentence, ques_vec, ans_vec):
     n_dim = ques_vec.shape[1]
     # define the number of pairs of question and answer
     n_q_a = df.shape[0]
+    # n_q_a = n_dim
+
     # define ques_vec as a numpy array that is a float of size 32 bits
-    x = ques_vec.astype(np.float32)
+    x = np.vstack(ques_vec).astype(np.float32)
     # define ans_vec as a numpy array that is a float of size 32 bits
-    y = ans_vec.astype(np.float32)
+    y = np.vstack(ans_vec).astype(np.float32)
     # reshape qr_sent_vec
     q = qr_sent_vec.reshape(1, -1)
     # build the faiss index, n_dim=size of vectors using faiss.index_factory with METRIC_INNER_PRODUCT parameter
@@ -105,7 +107,6 @@ def find_answer(qr_sentence, ques_vec, ans_vec):
     # return an answer index align with our question-answer dataset
     if ans_idx > n_q_a:
         ans_idx = ans_idx % n_q_a
-      
     return ans_idx
 
 
