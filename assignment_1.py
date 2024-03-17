@@ -17,12 +17,13 @@ import gensim
 import numpy as np
 
 # load question-answer dataset 
-df = pd.read_csv("data/Question_Answer_Dataset_v1.2_S10.csv")
+df = pd.read_csv("/workspaces/word2vec-qa-chatbot-2-shriek123/data/Question_Answer_Dataset_v1.2_S10.csv")
 
 # load question and answer vectors generated from pre-trained word2vec model
-vector = np.load('data/vector.npz')
+vector = np.load('/workspaces/word2vec-qa-chatbot-2-shriek123/data/vector.npz')
 ques_vec = vector['x']
-ans_vec = vector['y']
+print(vector)
+#ans_vec = vector['y']
 
 # load th trained word2vec model 
 # Hint: You should use the word2vec model pre-trained with both question and answer sets.
